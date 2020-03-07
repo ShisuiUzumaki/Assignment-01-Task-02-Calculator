@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradiant"
     android:orientation="vertical"
-    tools:context="pk.edu.pucit.calculator.MainActivity">
+    tools:context="pk.edu.pucit.calculatorapp.MainActivity">
 
     <TextView
         android:id="@+id/tv_equation"
@@ -57,6 +57,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_ac"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -67,6 +68,7 @@
                 android:textSize="10pt" />
 
             <TextView
+                android:id="@+id/tv_divide"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -77,6 +79,7 @@
                 android:textSize="10pt" />
 
             <TextView
+                android:id="@+id/tv_multiply"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -87,6 +90,7 @@
                 android:textSize="10pt" />
 
             <TextView
+                android:id="@+id/tv_subtract"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -106,6 +110,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -113,9 +118,11 @@
                 android:gravity="center"
                 android:text="7"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                 />
 
             <TextView
+                android:id="@+id/tv_8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -123,9 +130,11 @@
                 android:gravity="center"
                 android:text="8"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -133,8 +142,11 @@
                 android:gravity="center"
                 android:text="9"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                 />
+
             <TextView
+                android:id="@+id/tv_addition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -153,6 +165,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -160,9 +173,11 @@
                 android:gravity="center"
                 android:text="4"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -170,9 +185,11 @@
                 android:gravity="center"
                 android:text="5"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -180,9 +197,11 @@
                 android:gravity="center"
                 android:text="6"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_remainder"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -201,6 +220,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -208,9 +228,11 @@
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -218,9 +240,11 @@
                 android:gravity="center"
                 android:text="2"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -228,8 +252,11 @@
                 android:gravity="center"
                 android:text="3"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
+
             <TextView
+                android:id="@+id/tv_delete"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -249,6 +276,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_doubleZero"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -256,9 +284,11 @@
                 android:gravity="center"
                 android:text="00"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_singleZero"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -266,9 +296,11 @@
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@color/white"
-                android:textSize="10pt" />
+                android:textSize="10pt"
+                />
 
             <TextView
+                android:id="@+id/tv_dot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -279,6 +311,7 @@
                 android:textSize="10pt" />
 
             <TextView
+                android:id="@+id/tv_equals_to"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
