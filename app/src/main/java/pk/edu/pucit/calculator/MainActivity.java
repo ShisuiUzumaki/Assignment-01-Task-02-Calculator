@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     break;
                 case R.id.tv_doubleZero:
-                    tv_equeation.setText(tv_equeation.getText().toString() + "0");
+                    tv_equeation.setText(tv_equeation.getText().toString() + "00");
                     if(!equationHandlingStack.empty()){
                         handleEquationOnStack("00");
                     }else{
@@ -156,83 +156,55 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.tv_addition:
                     if(!equationHandlingStack.empty()){
+                        handleEquationOnStack("+");
                         if(!tv_equeation.getText().toString().equals("")){
                             tv_equeation.setText(tv_equeation.getText().toString() + "+");
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "+");
                         }
-                        handleEquationOnStack("+");
-                    }else{
-                        equationHandlingStack.push("0");
-                        equationHandlingStack.push("+");
-                        tv_equeation.setText(tv_equeation.getText().toString() + "0+");
-                        tv_result.setText("+");
+
                     }
-                    //handleFloat = 1;
                     break;
                 case R.id.tv_subtract:
                     if(!equationHandlingStack.empty()){
+                        handleEquationOnStack("-");
                         if(!tv_equeation.getText().toString().equals("")){
                             tv_equeation.setText(tv_equeation.getText().toString() + "-");
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "-");
                         }
-                        handleEquationOnStack("-");
-                    }else{
-                        equationHandlingStack.push("0");
-                        equationHandlingStack.push("-");
-                        tv_equeation.setText(tv_equeation.getText().toString() + "0-");
-                        tv_result.setText("-");
                     }
-                    //handleFloat = 1;
                     break;
                 case R.id.tv_divide:
                     if(!equationHandlingStack.empty()){
+                        handleEquationOnStack("/");
                         if(!tv_equeation.getText().toString().equals("")){
                             tv_equeation.setText(tv_equeation.getText().toString() + "/");
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "/");
                         }
-                        handleEquationOnStack("/");
-                    }else{
-                        equationHandlingStack.push("0");
-                        equationHandlingStack.push("/");
-                        tv_equeation.setText(tv_equeation.getText().toString() + "0/");
-                        tv_result.setText("/");
+
                     }
-                    //handleFloat = 1;
                     break;
                 case R.id.tv_multiply:
                     if(!equationHandlingStack.empty()){
+                        handleEquationOnStack("x");
                         if(!tv_equeation.getText().toString().equals("")){
                             tv_equeation.setText(tv_equeation.getText().toString() + "x");
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "x");
                         }
-                        handleEquationOnStack("x");
-                    }else{
-                        equationHandlingStack.push("0");
-                        equationHandlingStack.push("x");
-                        tv_equeation.setText(tv_equeation.getText().toString() + "0x");
-                        tv_result.setText("x");
                     }
-                    //handleFloat = 1;
                     break;
                 case R.id.tv_remainder:
                     if(!equationHandlingStack.empty()){
+                        handleEquationOnStack("%");
                         if(!tv_equeation.getText().toString().equals("")){
                             tv_equeation.setText(tv_equeation.getText().toString() + "%");
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "%");
                         }
-                        handleEquationOnStack("%");
-                    }else{
-                        equationHandlingStack.push("0");
-                        equationHandlingStack.push("%");
-                        tv_equeation.setText(tv_equeation.getText().toString() + "0%");
-                        tv_result.setText("%");
                     }
-                    //handleFloat = 1;
                     break;
                 case R.id.tv_dot:
                     if(!(tv_equeation.getText().toString().indexOf(".") >=0)){
@@ -251,11 +223,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void handleEquationOnStack(String val){
-
         if(!val.equals("+")&&!val.equals("-")&&!val.equals("x")&&!val.equals("/")&&!val.equals("%")){
             String stTop = equationHandlingStack.pop().toString();
             if(!stTop.equals("+") &&!stTop.equals("-") && !stTop.equals("x")&& !stTop.equals("/") && !stTop.equals("%")){
-
                 stTop = stTop+val;
                 equationHandlingStack.push(stTop);
                 if(stTop.toString().indexOf(".") == stTop.toString().length()-1){
@@ -269,7 +239,14 @@ public class MainActivity extends AppCompatActivity {
                 tv_result.setText(val);
             }
         }else{
-            equationHandlingStack.push(val);
+            String stTop = equationHandlingStack.peek().toString();
+            if(!stTop.equals("+") &&!stTop.equals("-") && !stTop.equals("x")&& !stTop.equals("/") && !stTop.equals("%")){
+                equationHandlingStack.push(val);
+            }else{
+                //equationHandlingStack.pop();
+                tv_del.performClick();
+                equationHandlingStack.push(val);
+            }
             tv_result.setText(val);
         }
     }
