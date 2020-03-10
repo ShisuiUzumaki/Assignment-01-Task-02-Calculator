@@ -1,20 +1,19 @@
 package pk.edu.pucit.calculator;
 
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.*;
-import pk.edu.pucit.calculatorapp.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.udojava.evalex.Expression;
+
+import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
 
+    Expression e = null;
     private Stack equationHandlingStack = new Stack();
     private Stack equationHandlingStack2 = new Stack();
     private TextView tv_equeation;
@@ -173,6 +172,10 @@ public class MainActivity extends AppCompatActivity {
                         }else{
                             tv_equeation.setText(tv_equeation.getText().toString()+tv_result.getText().toString() + "-");
                         }
+                    }else{
+                        tv_equeation.setText(tv_equeation.getText().toString() + "-");
+                        equationHandlingStack.push("-");
+                        tv_result.setText("-");
                     }
                     break;
                 case R.id.tv_divide:
@@ -244,7 +247,10 @@ public class MainActivity extends AppCompatActivity {
                 equationHandlingStack.push(val);
             }else{
                 //equationHandlingStack.pop();
-                tv_del.performClick();
+                if(!val.equals("-")){
+                    tv_del.performClick();
+                }
+
                 equationHandlingStack.push(val);
             }
             tv_result.setText(val);
@@ -296,12 +302,20 @@ public class MainActivity extends AppCompatActivity {
         tv_equals.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                switchDataFromStakc1ToStack2();
-                String result = computeEquation();
-                tv_result.setText(result);
-                tv_equeation.setText("");
+               if(!equationHandlingStack.peek().equals("-") && equationHandlingStack.size() != 1){
+                   switchDataFromStakc1ToStack2();
+                   String result = computeEquation();
+                   tv_result.setText(result);
+                   tv_equeation.setText("");
 //                equationHandlingStack.clear();
-                equationHandlingStack2.clear();
+                   equationHandlingStack2.clear();
+               }else{
+                   tv_ac.performClick();
+               }
+//                e=new Expression(tv_equeation.getText().toString());
+//                String result = e.eval().toString();
+//                tv_result.setText(result);
+
             }
         });
 
